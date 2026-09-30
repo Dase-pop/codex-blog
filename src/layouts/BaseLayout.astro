@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Codex Blog — Ideas in progress',
+  description = 'Notes on building thoughtful software, creative work, and the ideas in between.',
+  image = '/social-card.svg',
+  type = 'website',
+  canonical = Astro.url,
+} = Astro.props;
+const canonicalUrl = new URL(canonical, Astro.site ?? Astro.url).toString();
+const imageUrl = new URL(image, Astro.site ?? Astro.url).toString();
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Codex Blog RSS" href="/rss.xml" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Codex Blog" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="mx-auto min-h-screen max-w-6xl px-6 sm:px-10">
+      <header class="flex h-20 items-center justify-between border-b border-line">
+        <a href="/" class="flex items-center gap-3 font-semibold tracking-tight" aria-label="Codex Blog home">
+          <span class="grid size-8 place-items-center rounded-lg bg-accent text-sm font-black text-night">C</span>
+          <span>codex<span class="text-accent">.</span>blog</span>
+        </a>
+        <nav class="flex items-center gap-6 text-sm text-muted" aria-label="Main navigation">
+          <a class="transition hover:text-ink" href="/blog/">Writing</a>
+          <a class="transition hover:text-ink" href="/about/">About</a>
+          <a class="hidden rounded-full border border-line px-4 py-2 text-ink transition hover:border-accent hover:text-accent sm:inline-flex" href="/rss.xml">RSS <span class="ml-2 text-accent">↗</span></a>
+        </nav>
+      </header>
+      <main><slot /></main>
+      <footer class="mt-24 flex flex-col justify-between gap-4 border-t border-line py-8 text-sm text-muted sm:flex-row sm:items-center">
+        <p>© {new Date().getFullYear()} Codex Blog. Made for curious minds.</p>
+        <div class="flex gap-5"><a href="/rss.xml" class="hover:text-accent">RSS feed</a><a href="/sitemap-index.xml" class="hover:text-accent">Sitemap</a></div>
+      </footer>
+    </div>
+  </body>
+</html>

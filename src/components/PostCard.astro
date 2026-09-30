@@ -1,0 +1,19 @@
+---
+const { post, index = 0 } = Astro.props;
+const { title, description, pubDate, category } = post.data;
+const slug = post.id.replace(/\.md$/, '');
+const date = pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+<article class="group grid gap-4 border-t border-line py-6 sm:grid-cols-[1fr_9rem] sm:items-start">
+  <div>
+    <div class="mb-3 flex items-center gap-3 text-xs font-medium uppercase tracking-[.16em] text-muted">
+      <span class="text-accent">{category}</span><span aria-hidden="true">·</span><time datetime={pubDate.toISOString()}>{date}</time>
+    </div>
+    <h3 class="text-xl font-semibold tracking-[-.03em] text-ink transition group-hover:text-accent"><a href={`/blog/${slug}/`}>{title}</a></h3>
+    <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">{description}</p>
+  </div>
+  <a class="mt-1 hidden items-center justify-end gap-2 text-sm text-muted transition group-hover:text-accent sm:flex" href={`/blog/${slug}/`} aria-label={`Read ${title}`}>
+    Read article <span aria-hidden="true">↗</span>
+  </a>
+</article>

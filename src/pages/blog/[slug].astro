@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id.replace(/\.md$/, '') }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, updatedDate, author, category, tags } = post.data;
+const date = pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<BaseLayout title={`${title} — Codex Blog`} description={description} type="article" canonical={`/blog/${post.id.replace(/\.md$/, '')}/`}>
+  <article class="mx-auto max-w-3xl py-12 sm:py-16">
+    <a href="/blog/" class="mb-10 inline-flex items-center gap-2 text-sm text-muted transition hover:text-accent"><span>←</span> All writing</a>
+    <header class="border-b border-line pb-9">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[.18em] text-accent">{category}</p>
+      <h1 class="text-4xl font-semibold leading-tight tracking-[-.05em] sm:text-5xl">{title}</h1>
+      <p class="mt-5 text-lg leading-8 text-muted">{description}</p>
+      <div class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+        <span>By {author}</span><span>·</span><time datetime={pubDate.toISOString()}>{date}</time>
+        {updatedDate && <span>· Updated {updatedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>}
+      </div>
+    </header>
+    <div class="prose-post py-8"><Content /></div>
+    {tags.length > 0 && <div class="mt-8 flex flex-wrap gap-2 border-t border-line pt-6">{tags.map((tag) => <span class="rounded-full border border-line px-3 py-1 text-xs text-muted">#{tag}</span>)}</div>}
+    <div class="mt-12 rounded-2xl border border-line bg-panel p-6 sm:p-8"><p class="text-sm text-muted">Enjoyed this note?</p><h2 class="mt-2 text-xl font-semibold tracking-tight">There’s more where that came from.</h2><a href="/blog/" class="mt-4 inline-flex text-sm font-medium text-accent">Browse all writing <span class="ml-2">→</span></a></div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const recentPosts = posts.slice(0, 3);
+---
+
+<BaseLayout>
+  <section class="relative overflow-hidden py-20 sm:py-28">
+    <div class="pointer-events-none absolute -right-24 -top-8 size-80 rounded-full bg-accent/5 blur-3xl"></div>
+    <div class="relative max-w-3xl">
+      <p class="mb-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-[.2em] text-accent"><span class="size-1.5 rounded-full bg-accent"></span> An independent journal</p>
+      <h1 class="text-5xl font-semibold leading-[1.06] tracking-[-.06em] text-ink sm:text-7xl">Ideas for a more<br /><span class="text-muted">intentional</span> internet.</h1>
+      <p class="mt-7 max-w-xl text-lg leading-8 text-muted">A collection of notes on building thoughtful software, creative work, and the small details that make both matter.</p>
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="/blog/" class="rounded-full bg-accent px-5 py-3 text-sm font-semibold text-night transition hover:bg-[#d4ff82]">Explore the writing <span class="ml-2">↗</span></a>
+        <a href="/about/" class="px-4 py-3 text-sm text-ink transition hover:text-accent">A little about me</a>
+      </div>
+    </div>
+    <div class="mt-16 grid grid-cols-3 border-y border-line py-5 sm:max-w-xl">
+      <div><p class="text-2xl font-semibold tracking-tight">{posts.length.toString().padStart(2, '0')}</p><p class="mt-1 text-xs text-muted">Published notes</p></div>
+      <div><p class="text-2xl font-semibold tracking-tight">∞</p><p class="mt-1 text-xs text-muted">Things to learn</p></div>
+      <div><p class="text-2xl font-semibold tracking-tight">2026</p><p class="mt-1 text-xs text-muted">Since the beginning</p></div>
+    </div>
+  </section>
+
+  <section class="pb-8" aria-labelledby="recent-heading">
+    <div class="mb-5 flex items-end justify-between">
+      <div><p class="mb-2 text-xs font-semibold uppercase tracking-[.18em] text-accent">Fresh thinking</p><h2 id="recent-heading" class="text-2xl font-semibold tracking-[-.04em]">Recent writing</h2></div>
+      <a href="/blog/" class="hidden text-sm text-muted transition hover:text-accent sm:inline-flex">All posts <span class="ml-2">→</span></a>
+    </div>
+    {recentPosts.length ? recentPosts.map((post, index) => <PostCard post={post} index={index} />) : <p class="border-t border-line py-8 text-muted">Your first post is on its way. Add a Markdown file to <code>src/content/posts/</code> to get started.</p>}
+  </section>
+</BaseLayout>
