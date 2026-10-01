@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Subscribe from "../../components/Subscribe.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -27,6 +28,6 @@ const date = pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric'
     </header>
     <div class="prose-post py-8"><Content /></div>
     {tags.length > 0 && <div class="mt-8 flex flex-wrap gap-2 border-t border-line pt-6">{tags.map((tag) => <span class="rounded-full border border-line px-3 py-1 text-xs text-muted">#{tag}</span>)}</div>}
-    <div class="mt-12 rounded-2xl border border-line bg-panel p-6 sm:p-8"><p class="text-sm text-muted">Enjoyed this note?</p><h2 class="mt-2 text-xl font-semibold tracking-tight">There’s more where that came from.</h2><a href="/blog/" class="mt-4 inline-flex text-sm font-medium text-accent">Browse all writing <span class="ml-2">→</span></a></div>
+    <Subscribe />
   </article>
 </BaseLayout>
