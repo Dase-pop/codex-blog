@@ -1,7 +1,7 @@
 ---
 title: "How to Start a Blog in 2026 (The Honest Guide)"
 description: "Most blog tutorials are written by people selling hosting. This one is not. A realistic guide to starting a blog that ranks on Google without paying for anything."
-pubDate: 2026-10-03
+pubDate: 2026-10-01
 author: "Dase-pop"
 category: "Web Development"
 tags: ["blogging", "seo", "astro", "cloudflare"]

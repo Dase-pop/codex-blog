@@ -1,7 +1,7 @@
 ---
 title: "Why My Env Variables Were Undefined in Production"
 description: "A Vite and Astro gotcha: why PUBLIC_ prefixed variables reach the client and everything else does not, and how to fix it without leaking secrets."
-pubDate: 2026-10-05
+pubDate: 2026-10-01
 author: "Dase-pop"
 category: "Web Development"
 tags: ["astro", "vite", "env", "debugging"]

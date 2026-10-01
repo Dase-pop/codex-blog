@@ -1,7 +1,7 @@
 ---
 title: "Astro Content Collections: The Schema Traps That Silently Drop Posts"
 description: "Three mistakes that make Astro report an empty content collection instead of an error, and how to diagnose each one."
-pubDate: 2026-10-04
+pubDate: 2026-10-01
 author: "Dase-pop"
 category: "Web Development"
 tags: ["astro", "content-collections", "debugging"]

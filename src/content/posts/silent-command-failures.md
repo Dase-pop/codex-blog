@@ -1,7 +1,7 @@
 ---
 title: "A Checklist for Silent Command Failures"
 description: "Commands that return wrong output without erroring are the hardest bugs to catch. Here is a reusable checklist for diagnosing them."
-pubDate: 2026-10-02
+pubDate: 2026-10-01
 author: "Dase-pop"
 category: "Tooling"
 tags: ["shell", "debugging", "reference"]

@@ -1,7 +1,7 @@
 ---
 title: "How to Get Your Blog Indexed by Google (And Why Nothing Happens for 6 Weeks)"
 description: "A realistic guide to Google indexing for new blogs: what to submit, what to expect, and why the silence in the first six weeks is not a sign that something is broken."
-pubDate: 2026-10-06
+pubDate: 2026-10-01
 author: "Dase-pop"
 category: "Web Development"
 tags: ["seo", "google", "indexing", "blogging"]

@@ -1,7 +1,7 @@
 ---
 title: "How to Host a Blog for Free in 2026 (Astro + Cloudflare Pages)"
 description: "A realistic cost breakdown of running a blog for 0 dollars a month, including the exact stack, the free-tier limits, and when you would actually need to pay."
-pubDate: 2026-10-02
+pubDate: 2026-10-01
 author: "Dase-pop"
 category: "Web Development"
 tags: ["astro", "cloudflare", "hosting", "static-site"]

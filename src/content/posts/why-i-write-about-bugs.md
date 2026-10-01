@@ -1,7 +1,7 @@
 ---
 title: "Why I Write About the Bugs I Fix"
 description: "A short note on why debugging stories are worth publishing, even when the fix turns out to be two lines."
-pubDate: 2026-10-03
+pubDate: 2026-10-01
 author: "Dase-pop"
 category: "Journal"
 tags: ["writing", "debugging", "process"]
