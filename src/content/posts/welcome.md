@@ -2,7 +2,7 @@
 title: "A quieter corner of the internet"
 description: "A first note on why this journal exists, and what I hope to explore here."
 pubDate: 2026-09-30
-author: "Codex Blog"
+author: "Dase-pop"
 category: "Journal"
 tags: ["beginnings", "web"]
 ---
