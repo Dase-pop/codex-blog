@@ -1,17 +1,55 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="About — Codex Blog" description="About Codex Blog: a journal about thoughtful software and creative work.">
-  <article class="max-w-3xl py-16 sm:py-24">
-    <p class="mb-4 text-xs font-semibold uppercase tracking-[.18em] text-accent">A short introduction</p>
-    <h1 class="text-4xl font-semibold tracking-[-.05em] sm:text-6xl">About this<br /><span class="text-muted">little corner.</span></h1>
+<BaseLayout
+  title="About — Codex Blog"
+  description="About Codex Blog: who writes it, why it exists, and what you can expect to find here."
+>
+  <article class="mx-auto max-w-2xl py-16 sm:py-24">
+    <p class="mb-4 text-xs font-semibold uppercase tracking-[.18em] text-accent">About</p>
+    <h1 class="text-4xl font-semibold tracking-[-.05em] sm:text-5xl">A developer writing down what he learns.</h1>
+
     <div class="prose-post mt-10">
-      <p>Codex Blog is an independent journal about making things for the web and paying attention to how they feel.</p>
-      <h2>What you’ll find here</h2>
-      <p>Expect practical notes on software, design, creative process, and the ideas that connect them. Some posts are field notes; others are longer explorations. All are written to be useful, thoughtful, and clear.</p>
-      <h2>A work in progress</h2>
-      <p>This site is a small, evolving space. New writing arrives when there’s something worth sharing. If you’d like to follow along, <a href="/rss.xml">subscribe to the RSS feed</a>.</p>
+      <p>I am a developer. I build for the web — mostly with Astro, Tailwind, and static sites — and I write about the problems I hit along the way.</p>
+
+      <p>This blog exists for one reason: when I spend an hour on a bug that should have taken five minutes, I want the next person to spend five minutes instead. That is the whole idea.</p>
+
+      <h2>What you will find here</h2>
+
+      <p>Most posts fall into one of three categories:</p>
+
+      <ul>
+        <li><strong>Web Development</strong> — Astro, Tailwind, deployment pipelines, and the version traps that cost more time than they should.</li>
+        <li><strong>Tooling</strong> — shell, Git, and the small commands whose wrong output quietly wastes an afternoon.</li>
+        <li><strong>Journal</strong> — occasional notes on why I write, and what I am trying to do with this space.</li>
+      </ul>
+
+      <p>Every technical post is written from firsthand experience. If I did not hit the problem myself, I do not write about it.</p>
+
+      <h2>How I write</h2>
+
+      <p>I write about the problems that took longer than they should have. The ones where the answer turned out to be smaller than the search. The ones with error messages that send you down the wrong path for an hour before the real cause shows up.</p>
+
+      <p>These are the posts I wish existed when I was stuck. So I write them, one at a time, in the hope that they save someone else the same afternoon.</p>
+
+      <h2>What this site runs on</h2>
+
+      <p>The blog itself is part of the experiment:</p>
+
+      <ul>
+        <li><strong>Astro 5</strong> for static site generation</li>
+        <li><strong>Tailwind 4</strong> for styling</li>
+        <li><strong>Cloudflare Pages</strong> for hosting and auto-deploy from GitHub</li>
+      </ul>
+
+      <p>Total hosting cost: zero. I wrote about the setup in <a href="/blog/free-blog-astro-cloudflare/">How I Set Up a Free Blog with Astro and Cloudflare Pages</a>.</p>
+
+      <h2>Follow along</h2>
+
+      <p>If you want new posts as they are published, subscribe to the <a href="/rss.xml">RSS feed</a>. It is the only subscription channel I maintain — no newsletter, no email list, no tracking pixels.</p>
+
+      <p>The source for this blog is on <a href="https://github.com/Dase-pop/codex-blog">GitHub</a>. If you spot something wrong in a post, open an issue or send a correction.</p>
     </div>
   </article>
 </BaseLayout>
