@@ -13,7 +13,7 @@ If you are in that stage right now, this is what is actually happening and what 
 
 ## The Honest Timeline
 
-Here is what a new blog looks like from Google is perspective over the first few months:
+Here is what a new blog looks like from Google's perspective over the first few months:
 
 | Time since launch | What happens |
 |--------------------|--------------|
@@ -60,7 +60,7 @@ sitemap-index.xml
 
 Astro generates this automatically if you use the `@astrojs/sitemap` integration. It lives at `sitemap-index.xml`, which points to `sitemap-0.xml`, which lists your actual URLs.
 
-If the status shows "Couldn is fetch" for a few days, do not panic. This happens often on new properties and resolves on its own. The sitemap is a hint, not a requirement.
+If the status shows "Couldn't fetch" for a few days, do not panic. This happens often on new properties and resolves on its own. The sitemap is a hint, not a requirement.
 
 ### 3. Request indexing for your key posts
 
@@ -93,7 +93,7 @@ The "Pages" report has four statuses worth understanding:
 
 - **Discovered - currently not indexed** — Google found the URL but has not crawled it yet. Normal for new sites. Just wait.
 - **Crawled - currently not indexed** — Google crawled the page but decided not to add it to the index. This is a soft signal that the content is not yet competitive. It usually resolves as the site gains authority.
-- **Indexed** — the page is in Google is index. It can appear in search results.
+- **Indexed** — the page is in Google's index. It can appear in search results.
 - **Duplicate, submitted URL not selected as canonical** — Google chose a different URL as the "official" version. If you cross-post to dev.to and forget the canonical URL, this is what happens.
 
 If a page sits in "Discovered" for weeks, that is normal. If it sits in "Crawled - not indexed" for months, the content probably needs more differentiation or more inbound links.
